@@ -69,35 +69,4 @@
         </plugin>
     </plugins>
 </build>
-
-<!--- 借助 maven-shade-plugin 生成可执行的jar文件,生成META-INF/MANIFEST.MF的Main-class信息
-然后在项目的根目录执行该jar文件
-java -jar target/hello-world-1.0-SNAPSHOT.jar  ===》输出 Hello Maven
-
-<build>
- <plugins>
-  <plugin>
-   <groupId>org.apache.maven.plugins</groupId>
-   <artifactId>maven-shade-plugin</artifactId>
-   <version>1.2.1</version>
-   <executions>
-     <execution>
-       <phase>package</phase>
-       <goals>
-         <goal>shade</goal>
-       </goals>
-       <configuration>
-         <transformers>
-         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-           <mainClass>com.github.ningg.mvnbook.helloworld.HelloWorld</mainClass>
-         </transformer>
-         </transformers>
-       </configuration>
-     </execution>
-   </executions>
-  </plugin>
- </plugins>
-</build>
---->
-
 </project>
