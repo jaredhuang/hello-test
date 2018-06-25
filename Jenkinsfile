@@ -20,8 +20,10 @@ pipeline {
         }
 
         stage('SonarQube') {
+            steps {
+            echo "正在开始代码检测........."
             withSonarQubeEnv('Sonar') {
-                sh "mvn -f pom.xml clean compile sonar:sonar"
+               sh '/usr/local/sonar-scanner/bin/sonar-scanner'
             }
         }
 
