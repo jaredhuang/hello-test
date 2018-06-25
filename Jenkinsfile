@@ -22,8 +22,11 @@ pipeline {
         stage('SonarQube') {
             steps {
                 echo "正在开始代码检测........"
+                script {
+                    scannerHome = tool "Sonar Scanner"
+                }
                 withSonarQubeEnv('Sonar Scanner') {
-                    sh "${sonarqubeScannerHome}/bin/sonar-scanner"
+                    sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
