@@ -21,11 +21,12 @@ pipeline {
 
         stage('SonarQube') {
             steps {
-            echo "正在开始代码检测........."
-            withSonarQubeEnv('Sonar') {
-               sh '/usr/local/sonar-scanner/bin/sonar-scanner'
-            }
-        }
+                echo "正在开始代码检测........."
+                withSonarQubeEnv('Sonar') {
+                sh '/usr/local/sonar-scanner/bin/sonar-scanner'
+                }
+             }
+         }
 
         stage('Deploy Stage') {
             steps {
