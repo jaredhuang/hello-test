@@ -21,10 +21,9 @@ pipeline {
 
         stage('SonarQube') {
             steps {
-                echo "正在开始代码检测........"
-                def scannerHome = tool "Sonar Scanner"
+                echo "正在开始代码检测........"             
                 withSonarQubeEnv('Sonar Scanner') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh "/usr/local/sonar-scanner/bin/sonar-scanner"
                 }
             }
         }
