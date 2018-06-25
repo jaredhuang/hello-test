@@ -20,9 +20,8 @@ pipeline {
         }
 
         stage('SonarQube') {
-            def scannerHome = tool name 'Sonar Scanner'
             withSonarQubeEnv('Sonar') {
-                sh "${scannerHome}/bin/sonar-scanner"
+                sh "mvn -f pom.xml clean compile sonar:sonar"
             }
         }
 
