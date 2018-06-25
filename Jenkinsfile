@@ -18,6 +18,13 @@ pipeline {
                 }
             }
         }
+        
+        stage('SonarQube analysis') {
+            def sonarqubeScannerHome = tool name: 'Sonar Scanner'
+            withSonarQubeEnv('SonarQube') {
+              sh "${sonarqubeScannerHome}/bin/sonar-scanner"
+            }
+        }
 
         stage('Deploy Stage') {
             steps {
@@ -28,3 +35,4 @@ pipeline {
         }
     }
 }
+
